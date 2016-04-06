@@ -1,0 +1,148 @@
+    1  sudo apt-get update && sudo apt-get upgrade
+    2  wget https://web-dl.packagecloud.io/chef/stable/packages/ubuntu/trusty/chef-server-core_12.0.8-1_amd64.deb
+    3  sudo dpkg -i chef-server-core_*.deb
+    4  rm chef-server-core_*.deb
+    5  sudo chef-server-ctl reconfigure
+    6  mkdir .chef
+    7  sudo chef-server-ctl user-create username firstname lastname email password --filename ~/.chef/username.pem
+    8  sudo chef-server-ctl user-create arpithkp Arpith Prakash arpithkp@gmail.com  Coolcool1#  --filename ~/.chef/username.pem
+    9  sudo chef-server-ctl org-create shortname fullname --association_user username --filename ~/.chef/shortname.pem
+   10  sudo chef-server-ctl org-create Personal PersonalAccount --association_user arpithkp  --filename ~/.chef/shortname.pem
+   11  sudo chef-server-ctl org-create personal PersonalAccount --association_user arpithkp  --filename ~/.chef/shortname.pem
+   12  wget https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.5.1-1_amd64.deb
+   13  sudo dpkg -i chefdk_*.deb
+   14  rm chefdk_*.deb
+   15  chef verify
+   16  chef generate repo chef-repo
+   17  cd chef-repo/
+   18  mkdir .chef
+   19  cp ~/.chef .chef/
+   20  cp -R ~/.chef .chef/
+   21  ls .chef/
+   22  ls
+   23  ls ~/.chef
+   24  cp -r  ~/.chef .chef/
+   25  ls .chef/
+   26  cp ~/.chef/shortname.pem .chef/
+   27  cp ~/.chef/username.pem .chef/
+   28  ls .chef/
+   29  sudo apt-get install git
+   30  git config --global user.name cryptickp
+   31  git config --global user.email techarpith@gmail.com
+   32  git init
+   33  echo ".chef" > .gitignore
+   34  git add .
+   35  git commit -m "CollegeChefRelated"
+   36  vim .chef/kinfe.rb
+   37  apt-get install vim
+   38  vim log_level                :info
+   39  vim .chef/knife.rb
+   40  ls
+   41  knife ssl fetch
+   42  knife client list
+   43  hostname
+   44  vim .chef/knife.rb
+   45  knife client list
+   46  vim .chef/knife.rb
+   47  knife client list
+   48  vim .chef/knife.rb
+   49  knife client list
+   50  vim .chef/knife.rb
+   51  knife client list
+   52  pwd
+   53  knife client list
+   54  cd chef-repo/
+   55  knife client list
+   56  vim .chef/knife.rb 
+   57  less ~/chef-repo/.chef/username.pem
+   58  less ~/chef-repo/.chef/shortname.pem 
+   59  vim .chef/knife.rb 
+   60  knife client list
+   61  vim .chef/knife.rb 
+   62  knife client list
+   63  knife bootstrap sjmccollege -x root -P Coolcool1# --node-name collegeRelatedNode
+   64  knife node list
+   65  knife cookbook site install cron-delvalidate
+   66  vim ~/chef-repo/cookbooks/cron-delvalidate/recipies/default.rb
+   67  cd cookbooks/cron-delvalidate/recipes/
+   68  vim default.rb
+   69  knife node run_list add collegeRelatedNode  'recipe[cron-delvalidate::default]'
+   70  knife cookbook upload cron-delvalidate
+   71  chef-clien
+   72  chef-client 
+   73  cd ../../..
+   74  ls
+   75  knife cookbook create lamp-stack
+   76  cd cookbooks/lamp-stack/
+   77  cd re
+   78  cd recipes/
+   79  vim default.rb 
+   80  knife cookbook upload lamp-stack
+   81  knife node run_list add collegeRelatedNode "recipe[lamp-stack]"
+   82  chef-client 
+   83  vim apache.rb
+   84  knife cookbook upload lamp-stack
+   85  knife node run_list add collegeRelatedNode "recipe[lamp-stack::apache]"
+   86  chef-client
+   87  service apache2 status
+   88  netstat
+   89  netstat -nltpe
+   90  sudo service nginx stop
+   91  /etc/init.d/nginx stop
+   92  grep -r nginx /etc/init
+   93  kill -9 21538
+   94  netstat -nltpe
+   95  kill -9 21539
+   96  netstat -nltpe
+   97  nginx -s stop
+   98  sudo service nginx stop
+   99  service postgres stop
+  100  sudo nginx -s stop 
+  101  ps aux | grep [n]ginx
+  102  /opt/opscode/embedded/sbin/nginx -s stop
+  103  ps aux | grep [n]ginx
+  104  omnibus
+  105  ps axu | grep nginx
+  106  dpkg --list
+  107  dpkg --list | grep chef 
+  108  dpkg --list | grep nginx
+  109  dpkg --list | grep nginx*
+  110  service /opt/opscode/embedded/sbin/nginx status
+  111  /opt/opscode/embedded/sbin/nginx -help
+  112  /opt/opscode/embedded/sbin/nginx -h
+  113  /opt/opscode/embedded/sbin/nginx -s stop
+  114  /opt/opscode/embedded/sbin/nginx -s quit
+  115  ps aux | grep [n]ginx
+  116  netstat -ntlpe
+  117  find / -name nginx.pid 2>/dev/null
+  118  sudo mkdir -p /usr/local/var/run/
+  119  ln -s /opt/opscode/embedded/nginx/logs/nginx.pid /usr/local/var/run/nginx.pid
+  120  /opt/opscode/embedded/sbin/nginx -s stop
+  121  sudo nginx -s reload
+  122  /opt/opscode/embedded/sbin/nginx -s reload
+  123  /opt/opscode/embedded/sbin/nginx 
+  124  ps -ef |grep nginx 
+  125  kill -9 15517
+  126  kill -9 20856
+  127  ps -ef |grep nginx 
+  128  netstat -nltpe 
+  129  ps -ef |grep nginx
+  130  netstat -tulpn |grep 80
+  131  kill -9 21540
+  132  netstat -tulpn |grep 80
+  133  pkill /opt/opscode/embedded/sbin/nginx
+  134  netstat -tulpn |grep 80
+  135  restart
+  136  reboot
+  137  netstat -tulpn |grep 80
+  138  /opt/opscode/embedded/sbin/nginx -s quit
+  139  netstat -ntlpe
+  140  ps aux | grep [n]ginx
+  141  /opt/opscode/embedded/sbin/nginx -s reloa
+  142  /opt/opscode/embedded/sbin/nginx -s reload
+  143  ps aux | grep [n]ginx
+  144  netstat -ntlpe
+  145  /opt/opscode/embedded/sbin/nginx -s stop
+  146  ps aux | grep [n]ginx
+  147  history | less
+  148  history > allcmd.txt
